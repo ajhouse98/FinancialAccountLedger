@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -206,16 +207,35 @@ public class AccountLedger {
                 5. Search by Vendor
                 
                 """);
-        System.out.println("Please choose one of the following options: ");
+        System.out.print("Please choose one of the following options: ");
         int option = userInput.nextInt();
 
         if (option == 1) {
-            
+            Reports reports = new Reports();
+            reports.filterMTD(tFile);
+
+        } else if (option == 2) {
+            Reports reports = new Reports();
+            reports.filterprevMonth(tFile);
+
+        }else if (option == 3) {
+            Reports reports = new Reports();
+            reports.filterYTD(tFile);
+
+        }else if (option == 4) {
+            Reports reports = new Reports();
+            reports.filterprevYear(tFile);
+
+        }else if (option == 5) {
+            System.out.print("Please enter the vendor name: ");
+            String vendor = userInput.nextLine();
+            userInput.nextLine(); // Consume newline character
+
+            Reports reports = new Reports();
+            reports.byVendor(tFile, vendor);
         }
 
     }
-
-
     private static String savedRecord(String name, String depositAmount) {
         // get date and time
         LocalDateTime today = LocalDateTime.now();

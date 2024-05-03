@@ -45,30 +45,29 @@ public class File {
         return files; // Return the list of Ledger objects
     }
 
-    public static List<Ledger> getDeposits() {
-        List<Ledger> deposits = new ArrayList<>();
-        List<Ledger> allTrans = uploadFile(); // Get all transactions
-
-        // Filter for deposits
-        for (Ledger transaction : allTrans) {
-            if (transaction.getDescription().equalsIgnoreCase("Deposit")) {
-                deposits.add(transaction);
-            }
-        }
-        return deposits;
+//    public static List<Ledger> getDeposits() {
+//        List<Ledger> deposits = new ArrayList<>();
+//        List<Ledger> allTrans = uploadFile(); // Get all transactions
+//
+//        // Filter for deposits
+//        for (Ledger transaction : allTrans) {
+//            if (transaction.getDescription().equalsIgnoreCase("Deposit")) {
+//                deposits.add(transaction);
+//            }
+//        }
+//        return deposits;
+//    }
+//
+//    public static List<Ledger> getpayments() {
+//        List<Ledger> payments = new ArrayList<>();
+//        List<Ledger> allTrans = uploadFile(); // Get all transactions
+//
+//        // Filter for deposits
+//        for (Ledger transaction : allTrans) {
+//            if (transaction.getDescription().equalsIgnoreCase("Payment")) {
+//                payments.add(transaction);
+//            }
+//        }
+//        return payments;
     }
-
-    public static List<Ledger> getpayments() {
-        List<Ledger> payments = new ArrayList<>();
-        List<Ledger> allTrans = uploadFile(); // Get all transactions
-
-        // Filter for deposits
-        for (Ledger transaction : allTrans) {
-            if (transaction.getDescription().equalsIgnoreCase("Payment")) {
-                payments.add(transaction);
-            }
-        }
-        return payments;
-    }
-}
 
